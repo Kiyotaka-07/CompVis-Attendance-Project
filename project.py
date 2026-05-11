@@ -35,7 +35,12 @@ def register_face(name, nim, samples=9):
         gray = cv2.cvtColor(mirror_frame, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         
+        MIN_FACE_SIZE = 120
+
         for (x, y, w, h) in faces:
+            if h < MIN_FACE_SIZE or w < MIN_FACE_SIZE:
+                continue
+
             face = gray[y:y+h, x:x+w]
             face = cv2.resize(face, (200, 200))
             
@@ -107,7 +112,12 @@ def attendance(label_dict, threshold=50):
         gray = cv2.cvtColor(mirror_frame, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         
+        MIN_FACE_SIZE = 120
+
         for (x, y, w, h) in faces:
+            if w < MIN_FACE_SIZE or h < MIN_FACE_SIZE:
+                continue
+
             face = gray[y:y+h, x:x+w]
             face = cv2.resize(face, (200, 200))
             
@@ -128,8 +138,7 @@ def attendance(label_dict, threshold=50):
                 color = (0,0,255)
             
             cv2.rectangle(mirror_frame, (x,y), (x+w, y+h), color, 2)
-            cv2.putText(mirror_frame, text, (x,y-10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
+            cv2.putText(mirror_frame, text, (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
         
         cv2.imshow("Attendance", mirror_frame)
         
