@@ -3,6 +3,7 @@ import cv2
 import pickle
 import numpy as np
 from datetime import datetime
+import os
 
 st.set_page_config(
     page_title="Take Attendance — FaceAttend",
@@ -225,7 +226,6 @@ div[data-testid="stImage"] > img {
 </style>
 """, unsafe_allow_html=True)
 
-@st.cache_resource
 def load_models():
     haar_path = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
     face_cascade = cv2.CascadeClassifier(haar_path)

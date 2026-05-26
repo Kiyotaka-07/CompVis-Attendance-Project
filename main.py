@@ -20,7 +20,7 @@ html, body, [class*="css"] {
 }
 
 #MainMenu, footer, header { visibility: hidden; }
-.block-container { padding-top: 2.5rem; padding-bottom: 2rem; max-width: 780px; }
+.block-container { padding-top: 2.5rem; padding-bottom: 10rem; max-width: 780px; }
 
 .hero-badge {
     display: inline-flex;
@@ -87,7 +87,7 @@ html, body, [class*="css"] {
 
 .card-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1.1rem;
     margin-bottom: 2rem;
 }
@@ -151,7 +151,12 @@ html, body, [class*="css"] {
     border-radius: 14px;
     border: 1px solid rgba(0,0,0,0.06);
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 0;  /* Change from 2rem to 0 */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 .stat-item {
     flex: 1;
@@ -225,6 +230,15 @@ st.markdown("""
       Add a new student by capturing their face and saving their profile to the recognition model.
     </div>
     <span class="card-arrow green">Open &rarr;</span>
+  </a>
+
+  <a class="nav-card" href="/Registration_List" target="_self">
+    <div class="card-icon purple">🗂️</div>
+    <div class="card-title">Manage Dataset</div>
+    <div class="card-desc">
+      View and manage registered students in the dataset. Delete entries and retrain the model.
+    </div>
+    <span class="card-arrow purple">Open &rarr;</span>
   </a>
 
 </div>
