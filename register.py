@@ -59,3 +59,8 @@ def register_face(name, nim, samples=9):
     capture.release()
     cv2.destroyAllWindows()
     print("Registrasi selesai")
+
+if __name__ == "__main__":
+    name = input("Enter Name: ")
+    nim = input("Enter NIM: ")
+    register_face(name, nim)
