@@ -11,7 +11,7 @@ if face_cascade.empty():
 else:
   print("Succeed to load the face cascade classifier XML file")
 
-def register_face(name, nim, samples=9):
+def register_face(name, nim, samples=30):
     capture = cv2.VideoCapture(0)
     
     dataset_path = "dataset"
